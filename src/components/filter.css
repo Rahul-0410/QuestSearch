@@ -1,0 +1,81 @@
+.filter-dropdown {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.filter-dropdown select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #404040;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  
+ 
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0e0e0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+.filter-dropdown select:focus {
+  border-color: #1a365d;
+  box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.2);
+}
+
+.filter-dropdown select:hover {
+  border-color: #1a365d;
+  transform: translateY(-1px);
+}
+
+
+.filter-dropdown select option {
+  padding: 12px;
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+}
+
+
+@media (max-width: 768px) {
+  .filter-dropdown {
+    padding: 8px;
+  }
+
+  .filter-dropdown select {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-dropdown {
+    padding: 6px;
+  }
+
+  .filter-dropdown select {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for focus state */
+@keyframes focusIn {
+  from {
+    box-shadow: 0 0 0 0 rgba(26, 54, 93, 0);
+  }
+  to {
+    box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.2);
+  }
+}
+
+.filter-dropdown select:focus {
+  animation: focusIn 0.2s ease forwards;
+}
+

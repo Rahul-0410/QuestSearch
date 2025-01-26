@@ -1,0 +1,100 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1a365d;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #2b4c85;
+  transform: translateY(-1px);
+}
+
+.pagination button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pagination button:disabled {
+  background-color: #404040;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.pagination span {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  font-weight: 500;
+}
+
+
+@media (max-width: 768px) {
+  .pagination {
+      gap: 1rem;
+      padding: 1rem;
+      margin: 1.5rem 0;
+  }
+
+  .pagination button {
+      padding: 6px 12px;
+      font-size: 0.85rem;
+  }
+
+  .pagination span {
+      font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination {
+      gap: 0.8rem;
+      padding: 0.8rem;
+      margin: 1rem 0;
+  }
+
+  .pagination button {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+  }
+
+  .pagination span {
+      font-size: 0.8rem;
+  }
+}
+
+.pagination button:not(:disabled) {
+  position: relative;
+  overflow: hidden;
+}
+
+.pagination button:not(:disabled)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.pagination button:not(:disabled):active::after {
+  transform: translate(-50%, -50%) scale(2);
+}

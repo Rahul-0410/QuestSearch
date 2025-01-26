@@ -1,0 +1,271 @@
+/* Search Page Styles */
+.search-page {
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.search-controls {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 70%;
+  max-width: 600px;
+  margin: 2rem auto;
+  color: #e0e0e0;
+  font-size: 1.1rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #e0e0e0;
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  color: #ff6b6b;
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+/* for title of the page  */
+.hub-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.hub-title h1 {
+  font-size: 2.5rem;
+  color: #e0e0e0;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.hub-title h1 span {
+  color: #1a365d;
+  background: linear-gradient(45deg, #90caf9, #1a365d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-left: 5px;
+}
+
+.hub-title p {
+  color: #666;
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+@media (max-width: 768px) {
+  .hub-title h1 {
+    font-size: 2rem;
+  }
+
+  .hub-title p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hub-title h1 {
+    font-size: 1.8rem;
+  }
+
+  .hub-title p {
+    font-size: 0.85rem;
+  }
+}
+
+
+.hub-title h1:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+
+.hub-title h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.hub-title p {
+  animation: slideIn 0.5s ease-out 0.2s both;
+}
+
+/* Question List Styles */
+.question-list {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #1a365d #2d2d2d;
+}
+
+.question-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.question-list::-webkit-scrollbar-track {
+  background: #2d2d2d;
+  border-radius: 4px;
+}
+
+.question-list::-webkit-scrollbar-thumb {
+  background-color: #1a365d;
+  border-radius: 4px;
+}
+
+.question-list:empty {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2d2d2d;
+  border-radius: 8px;
+}
+
+.question-list:empty::after {
+  content: 'No questions found';
+  color: #e0e0e0;
+  font-size: 1.1rem;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-page > * {
+  animation: fadeIn 0.3s ease-out;
+  transition: all 0.3s ease;
+}
+
+.question-list > * {
+  animation: cardAppear 0.3s ease-out forwards;
+}
+
+/* Stagger animation for cards */
+.question-list > *:nth-child(1) { animation-delay: 0s; }
+.question-list > *:nth-child(2) { animation-delay: 0.1s; }
+.question-list > *:nth-child(3) { animation-delay: 0.2s; }
+.question-list > *:nth-child(4) { animation-delay: 0.3s; }
+.question-list > *:nth-child(5) { animation-delay: 0.4s; }
+
+/* Hover effects */
+.question-list > *:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+
+@media (max-width: 1200px) {
+  .search-page {
+    padding: 1.5rem;
+  }
+  
+  .question-list {
+    max-width: 700px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-page {
+    padding: 1rem;
+  }
+
+  .search-controls {
+    gap: 0.8rem;
+  }
+
+  .no-results {
+    padding: 2rem;
+    font-size: 1rem;
+    margin: 1.5rem auto;
+  }
+
+  .question-list {
+    max-width: 600px;
+    padding: 8px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-page {
+    padding: 0.8rem;
+  }
+
+  .search-controls {
+    gap: 0.6rem;
+  }
+
+  .no-results {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .question-list {
+    padding: 6px;
+    gap: 12px;
+  }
+}
+
